@@ -1,0 +1,19 @@
+class Solution {
+    public char findTheDifference(String s, String t) {
+        if(s.length() == 0) return t.charAt(0);
+        int[] str = new int[26];
+        for(int i=0;i<s.length();i++){
+            str[s.charAt(i)-97]++;
+        }
+        int[] str1 = new int[26];
+        for(int j=0; j<t.length();j++){
+            str1[t.charAt(j)-97]++;
+        }
+        for(int i=0; i<t.length();i++){
+            if(str1[t.charAt(i)-97] != str[t.charAt(i)-97]){
+                return t.charAt(i);
+            }
+        }
+        return 'a';
+    }
+}
