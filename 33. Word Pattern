@@ -1,0 +1,29 @@
+class Solution {
+    public boolean wordPattern(String pattern, String s) {
+        String[] str = s.split(" ");
+        int n=pattern.length();
+        int m=str.length;
+        if(n!=m) return false;
+        HashMap<Character, String> map = new HashMap<>();
+        char k;
+        String s1;
+        for(int i=0; i<n;i++){
+            k=pattern.charAt(i);
+            s1=str[i];
+            if(!map.containsKey(k) && !map.containsValue(s1)){
+                map.put(k,s1);
+            }
+            else if(!map.containsKey(k) && map.containsValue(s1)){
+                map.put(k,"null");
+            }
+        }
+        for(int i=0;i<n;i++){
+            k=pattern.charAt(i);
+            s1=str[i];
+            if(!(map.get(k).equals(s1))){
+                return false;
+            }
+        }
+        return true;
+    }
+}
