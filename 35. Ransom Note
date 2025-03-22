@@ -1,0 +1,23 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+        char[] str1 = ransomNote.toCharArray();
+        char[] str2 = magazine.toCharArray();
+        Arrays.sort(str1);
+        Arrays.sort(str2);
+        int n = magazine.length(), count=0;
+        int m = ransomNote.length();
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(str1[i] == str2[j]){
+                    count++;
+                    str2[j] = '0';
+                    break;
+                }
+            } 
+        }
+        if(count==ransomNote.length()){
+            return true;
+        }
+        return false;
+    }
+}
