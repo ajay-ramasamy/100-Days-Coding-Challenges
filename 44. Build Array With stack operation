@@ -1,0 +1,24 @@
+class Solution {
+    public boolean check(int i, int[] target){
+        for(int j=0;j<target.length;j++){
+            if(target[j] == i){
+                return true;
+            }
+        }
+        return false;
+    }
+    public List<String> buildArray(int[] target, int n) {
+        ArrayList<String> stack = new ArrayList<>();
+        for(int i=1; i<n+1;i++){
+            stack.add("Push");
+            if(!check(i,target)){
+                stack.add("Pop");
+            }
+            if(i==target[target.length-1]){
+                break;
+            }
+        }
+        return stack;
+    }
+
+}
