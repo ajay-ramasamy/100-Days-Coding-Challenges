@@ -1,0 +1,27 @@
+class Solution {
+    public static int check(int nums2[] ,int j){
+        int len = nums2.length;
+        int val = nums2[j];
+        for(int i=j+1;i<len;i++){
+            if(nums2[i] > val){
+                return nums2[i];
+            }
+        }
+        return -1;
+    }
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        int n = nums1.length, m=nums2.length;
+        int arr[] = new int[n];
+        int k=0;
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                if(nums1[i] == nums2[j]){
+                    int val = check(nums2, j);
+                    arr[k] = val;
+                    k++;
+                }
+            }
+        }
+        return arr;
+    }
+}
