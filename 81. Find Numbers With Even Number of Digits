@@ -1,0 +1,19 @@
+class Solution {
+    public static boolean check(int num){
+        int digit =0;
+        while(num!=0){
+            digit++;
+            num/=10;
+        }
+        return (digit & 1 )==0;
+    }
+    public int findNumbers(int[] nums) {
+        int even = 0;
+        for(int num : nums){
+            if(check(num)){
+                even++;
+            }
+        }
+        return even;
+    }
+}
